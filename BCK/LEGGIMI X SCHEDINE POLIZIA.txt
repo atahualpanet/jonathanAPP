@@ -1,0 +1,36 @@
+ALLOGGIATI WEB — file pronti da copiare
+========================================
+
+1) Scompatta questo ZIP nella ROOT del progetto Laravel
+   (sovrascrive i file già esistenti: va bene).
+
+2) Da terminale, nella root del progetto:
+
+   php artisan migrate
+   php artisan db:seed --class=AlloggiatiDocumentiSeeder
+   php artisan route:clear
+   php artisan view:clear
+   php artisan config:clear
+
+3) (Consigliato) Importa le tabelle ufficiali del portale:
+   - Login su https://alloggiatiweb.poliziadistato.it
+   - Supporto Tecnico → Tabelle → scarica Stati, Comuni, Documenti
+   - Salvali in storage/app/alloggiati/
+   - Esegui:
+
+   php artisan alloggiati:import-tabelle \
+     --stati=storage/app/alloggiati/stati.txt \
+     --comuni=storage/app/alloggiati/comuni.txt \
+     --documenti=storage/app/alloggiati/documenti.txt \
+     --truncate
+
+File inclusi (già completi, nessuna modifica manuale):
+- app/Http/Controllers/FrontDeskController.php
+- routes/web.php
+- app/Support/SchedineTxt.php
+- app/Models/Alloggiati*.php
+- app/Console/Commands/ImportaTabelleAlloggiati.php
+- database/migrations/2026_11_11_140000_alloggiati_tabelle_codici.php
+- database/seeders/AlloggiatiDocumentiSeeder.php
+- resources/views/frontdesk/adempimenti.blade.php
+- resources/views/frontdesk/adempimenti-storico.blade.php

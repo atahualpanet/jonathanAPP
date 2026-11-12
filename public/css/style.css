@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Jonathan PMS — stili propri (oltre a Tailwind).
+   Regola: niente style="" nelle pagine e niente blocchi <style>: gli stili stanno qui, con classi.
+   Colori: deepNavy #0A2239 · fdBlue #4F86B0 · okGreen #5E8F68 · warmGold #C9A75D · errore #B5563C
+   ========================================================================== */
+
+/* ---------- Tableau ---------- */
+.col-camera { width: 104px; }
+
+.cella-vuota {
+    display: block;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    transition: background-color .15s ease;
+}
+.cella-vuota:hover,
+.cella-vuota:focus-visible {
+    background-color: rgba(79, 134, 176, .12);
+    outline: none;
+}
+.cella-passata {
+    display: block;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    cursor: not-allowed;
+}
+
+/* anteprima mentre si trascina una barra (la posizione la imposta lo script) */
+.tableau-anteprima {
+    position: fixed;
+    display: none;
+    pointer-events: none;
+    z-index: 50;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 2px dashed #4F86B0;
+    background: rgba(79, 134, 176, .75);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tableau-anteprima.is-visibile { display: flex; }
+.tableau-anteprima.is-errore { border-color: #B5563C; background: rgba(181, 86, 60, .75); }
+
+.tableau-barra-trascinata { opacity: .35; }
+.cursore-grabbing { cursor: grabbing; }
+.cursore-resize { cursor: ew-resize; }
+
+.tableau-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: inherit;
+    background: rgba(10, 34, 57, .55);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 60;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #5E8F68;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+}
+.toast.is-errore { background: #B5563C; }
+
+/* ---------- Tableau: camera da pulire ---------- */
+/* Sfondo sabbia/cuoio solo sulla cella del numero, vicino al cream della palette e distinto da warmGold (Opzione). */
+.riga-sporca > td:first-child { background-color: #E9DCCB; color: #5A4636; box-shadow: inset 3px 0 0 #B8532F; }
+.hk-legenda { width: .875rem; height: .875rem; border-radius: 9999px; background-color: #D9C6AE; }
+
+/* ---------- Barra di avanzamento (ISTAT) ---------- */
+.barra-progresso {
+    display: block;
+    width: 100%;
+    height: 8px;
+    border: 0;
+    border-radius: 9999px;
+    background: #f3f4f6;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.barra-progresso::-webkit-progress-bar { background: #f3f4f6; }
+.barra-progresso::-webkit-progress-value { background: #4F86B0; border-radius: 9999px; }
+.barra-progresso::-moz-progress-bar { background: #4F86B0; border-radius: 9999px; }
+
+/* ---------- Caricamento documento (drag & drop) ---------- */
+.dropzone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 14px;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.dropzone:hover { border-color: #4F86B0; background: #f2f7fb; }
+.dropzone:focus-visible { outline: none; border-color: #4F86B0; box-shadow: 0 0 0 3px rgba(79, 134, 176, .25); }
+
+.dropzone.is-dragover {
+    border-style: solid;
+    border-color: #4F86B0;
+    background: rgba(79, 134, 176, .1);
+    box-shadow: 0 0 0 4px rgba(79, 134, 176, .15);
+}
+.dropzone.is-invalid { border-color: #B5563C; background: rgba(181, 86, 60, .05); }
+.dropzone.has-file { border-style: solid; border-color: #5E8F68; background: rgba(94, 143, 104, .06); cursor: default; }
+
+.dropzone__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.dropzone__icon {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #4F86B0;
+    transition: transform .15s ease;
+}
+.dropzone:hover .dropzone__icon,
+.dropzone.is-dragover .dropzone__icon { transform: translateY(-2px); }
+
+.dropzone__testo { min-width: 0; flex: 1; }
+.dropzone__titolo { font-size: 14px; font-weight: 500; color: #0A2239; }
+.dropzone__titolo u { color: #4F86B0; text-decoration: none; border-bottom: 1px solid currentColor; }
+.dropzone__aiuto { margin-top: 2px; font-size: 12px; color: #94a3b8; }
+
+.dropzone__file { display: none; align-items: center; gap: 12px; width: 100%; }
+.dropzone.has-file .dropzone__file { display: flex; }
+.dropzone.has-file .dropzone__vuoto { display: none; }
+.dropzone__vuoto { display: flex; align-items: center; gap: 14px; width: 100%; }
+
+.dropzone__anteprima {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    object-fit: cover;
+}
+.dropzone__pdf {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: #B5563C;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+.dropzone__nome { font-size: 14px; font-weight: 500; color: #0A2239; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dropzone__peso { font-size: 12px; color: #94a3b8; }
+.dropzone__rimuovi {
+    flex: none;
+    margin-left: auto;
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.dropzone__rimuovi:hover { background: #fff; color: #B5563C; }
+
+.dropzone__errore { margin-top: 6px; font-size: 12px; font-weight: 500; color: #B5563C; }
+
+/* ---------- Schede persona (check-in e scheda prenotazione) ---------- */
+.persona + .persona { margin-top: 4px; padding-top: 20px; border-top: 1px solid #f1f5f9; }
+.persona__tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: #eef2f6;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ---------- Folio: drag & drop delle voci tra i due conti ---------- */
+.folio-zona { min-height: 64px; border-radius: 12px; transition: background-color .15s, outline-color .15s; }
+.folio-zona.folio-drop-attiva { background: #EAF0F8; outline: 2px dashed #4F86B0; outline-offset: 4px; }
+.folio-rilascia {
+    padding: 10px 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+}
+.voce-trascinata { opacity: .45; }
+
+/* ---------- Stampa fattura ---------- */
+@media print {
+    aside, header, .no-stampa { display: none !important; }
+    body { background: #fff; }
+    main { padding: 0 !important; }
+    .fattura { border: 0; border-radius: 0; padding: 0; }
+}
+
+/* ---------- Impostazioni e Minibar ---------- */
+.campo-inline {
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 14px;
+    color: #0A2239;
+    transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.campo-inline:hover { border-color: #e2e8f0; background: #fff; }
+.campo-inline:focus { outline: none; border-color: #4F86B0; background: #fff; box-shadow: 0 0 0 3px rgba(79, 134, 176, .2); }
+.campo-inline--num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.interruttore { position: relative; display: inline-block; width: 36px; height: 20px; }
+.interruttore input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.interruttore__traccia {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #cbd5e1;
+    pointer-events: none;
+    transition: background-color .15s ease, box-shadow .15s ease;
+}
+.interruttore__traccia::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    transition: transform .15s ease;
+}
+.interruttore input:checked + .interruttore__traccia { background: #5E8F68; }
+.interruttore input:checked + .interruttore__traccia::after { transform: translateX(16px); }
+.interruttore input:focus-visible + .interruttore__traccia { box-shadow: 0 0 0 3px rgba(79, 134, 176, .25); }
+
+/* ---------- Utilità ---------- */
+[hidden] { display: none !important; }
+[x-cloak] { display: none !important; }

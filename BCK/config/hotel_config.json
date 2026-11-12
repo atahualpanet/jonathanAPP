@@ -1,0 +1,306 @@
+{
+    "hotel": {
+        "nome": "Claremont Hotel",
+        "nome_commerciale": "Claremont Hotel",
+        "codice_struttura": "FEN-01",
+        "stella": "4",
+        "categoria": null,
+        "valuta": "EUR",
+        "simbolo_valuta": "€",
+        "fuso_orario": null,
+        "anno_apertura": 1998,
+        "sito_web": "https://www.jonathanhotel.example",
+        "email_generale": "info@jonathanpms.local",
+        "telefono_generale": "+39 010 1234567",
+        "logo": "/assets/logo.png",
+        "logo_caricato": "storage/loghi/LMWQ6mfIvBCCkuwTcVTZdSGGeflYgquxaEa0dVYO.png",
+        "colore_primario": null,
+        "colore_secondario": null
+    },
+    "indirizzo_struttura": {
+        "indirizzo": "Via Roma, 42",
+        "cap": "16121",
+        "citta": "Genova",
+        "provincia": "GE",
+        "regione": "Liguria",
+        "paese": "Italia",
+        "codice_paese": "IT",
+        "latitudine": 44.4056,
+        "longitudine": 8.9463,
+        "google_maps_url": "https://maps.google.com/?q=Via+Roma+42+Genova"
+    },
+    "fatturazione": {
+        "ragione_sociale": null,
+        "partita_iva": "IT12345678901",
+        "codice_fiscale": "12345678901",
+        "codice_univoco": "M5UXCR1",
+        "pec": "Clermont.Hotel@pec.it",
+        "regime_fiscale": null,
+        "indirizzo": "Via Roma, 42",
+        "cap": "16121",
+        "citta": "Genova",
+        "provincia": "GE",
+        "paese": null,
+        "telefono": null,
+        "email_amministrazione": null,
+        "email_fatturazione": null,
+        "iban": "IT60X0542811101000000123456",
+        "banca": null,
+        "intestatario_conto": null,
+        "aliquota_iva_default": null,
+        "aliquota_iva_ristorazione": null,
+        "tassa_soggiorno": {
+            "attiva": true,
+            "importo_per_persona_notte": 2.5,
+            "eta_esenzione": 12,
+            "max_notti": 5,
+            "esente_imposta": false
+        }
+    },
+    "legale": {
+        "rappresentante_legale": "Mario Rossi",
+        "codice_licenza": "LIC-GE-12345",
+        "numero_iscrizione_registro": "GE-1998-0042",
+        "assicurazione_rc": {
+            "compagnia": "Assicurazioni Esempio",
+            "numero_polizza": "POL-987654",
+            "scadenza": "2026-12-31"
+        }
+    },
+    "localizzazione": {
+        "lingua_default": "it",
+        "lingue_supportate": [
+            "it",
+            "en",
+            "es",
+            "fr"
+        ],
+        "formato_data": "d/m/Y",
+        "formato_ora": "H:i",
+        "primo_giorno_settimana": "lunedi",
+        "separatore_decimale": ",",
+        "separatore_migliaia": ".",
+        "unita_misura": "metrico"
+    },
+    "configurazione": {
+        "modalita_debug": false,
+        "tema": "light",
+        "auto_logout_minuti": 30,
+        "richiedi_cambio_password_primo_accesso": true,
+        "lunghezza_minima_password": 8,
+        "autenticazione_2fa": false,
+        "backup_automatico": {
+            "attivo": true,
+            "frequenza": "giornaliero",
+            "orario": "03:00"
+        }
+    },
+    "frontdesk": {
+        "orario_check_in": "14:00",
+        "orario_check_out": "10:30",
+        "check_in_anticipato_su_richiesta": true,
+        "check_out_posticipato_su_richiesta": true,
+        "giorni_tableau_default": 7,
+        "gestione_piani": [
+            1,
+            2,
+            3
+        ],
+        "overbooking_consentito": false,
+        "assegnazione_automatica_camera": true,
+        "preautorizzazione_carta": true,
+        "importo_preautorizzazione": 100,
+        "tolleranza_checkout_ore": 2
+    },
+    "camere": {
+        "numero_totale": 48,
+        "piani": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "tipologie": [
+            {
+                "codice": "SGL",
+                "nome": "Singola",
+                "capacita_max": 1,
+                "tariffa_base": 75
+            },
+            {
+                "codice": "DBL",
+                "nome": "Doppia",
+                "capacita_max": 2,
+                "tariffa_base": 110
+            },
+            {
+                "codice": "TWN",
+                "nome": "Doppia Twin",
+                "capacita_max": 2,
+                "tariffa_base": 110
+            },
+            {
+                "codice": "TPL",
+                "nome": "Tripla",
+                "capacita_max": 3,
+                "tariffa_base": 145
+            },
+            {
+                "codice": "QDR",
+                "nome": "Quadrupla",
+                "capacita_max": 4,
+                "tariffa_base": 175
+            },
+            {
+                "codice": "SUI",
+                "nome": "Suite",
+                "capacita_max": 4,
+                "tariffa_base": 250
+            },
+            {
+                "codice": "FAM",
+                "nome": "Family",
+                "capacita_max": 5,
+                "tariffa_base": 220
+            }
+        ],
+        "numerazione": {
+            "prefisso_piano": true,
+            "esempio": "101, 102, 201, 202"
+        }
+    },
+    "servizi": {
+        "colazione": {
+            "attiva": true,
+            "orario": "07:00-10:30",
+            "inclusa_default": true,
+            "prezzo": 0
+        },
+        "ristorante": {
+            "attivo": true,
+            "orari": [
+                "12:30-14:30",
+                "19:30-22:30"
+            ],
+            "prenotazione_richiesta": true
+        },
+        "bar": {
+            "attivo": true,
+            "orario": "10:00-24:00"
+        },
+        "parcheggio": {
+            "attivo": true,
+            "posti": 20,
+            "gratuito": false,
+            "prezzo_giornaliero": 15
+        },
+        "wifi": {
+            "attivo": true,
+            "gratuito": true,
+            "ssid": "JonathanGuest",
+            "password": "welcome2024"
+        },
+        "piscina": {
+            "attiva": false
+        },
+        "palestra": {
+            "attiva": true,
+            "orario": "06:00-22:00"
+        },
+        "spa": {
+            "attiva": false
+        },
+        "navetta_aeroporto": {
+            "attiva": false
+        },
+        "animali_ammessi": {
+            "attivo": true,
+            "supplemento": 20
+        },
+        "culla": {
+            "disponibile": true,
+            "gratuita": true
+        },
+        "letto_aggiuntivo": {
+            "disponibile": true,
+            "prezzo": 30
+        }
+    },
+    "policy": {
+        "cancellazione_gratuita_entro_ore": 48,
+        "penale_cancellazione_percentuale": 100,
+        "no_show_percentuale": 100,
+        "eta_minima_prenotazione": 18,
+        "documento_richiesto_check_in": true,
+        "carta_credito_richiesta_prenotazione": true,
+        "deposito_cauzionale": {
+            "richiesto": false,
+            "importo": 0
+        }
+    },
+    "canali_vendita": {
+        "booking_com": {
+            "attivo": true,
+            "codice_struttura": "1234567"
+        },
+        "expedia": {
+            "attivo": true,
+            "codice_struttura": "9876543"
+        },
+        "airbnb": {
+            "attivo": false
+        },
+        "sito_diretto": {
+            "attivo": true,
+            "url": "https://booking.jonathanhotel.example"
+        }
+    },
+    "integrazioni": {
+        "siteminder": {
+            "attivo": true,
+            "hotel_id": "SM-JON-01"
+        },
+        "registro_alloggiati_web": {
+            "attivo": true,
+            "codice_struttura": "IT-GE-0042"
+        },
+        "sdi": {
+            "attivo": true
+        },
+        "pos": {
+            "attivo": true,
+            "fornitore": "Nexi"
+        },
+        "cassa": {
+            "attivo": true,
+            "fornitore": "Epson"
+        },
+        "email_smtp": {
+            "host": "smtp.jonathanpms.local",
+            "porta": 587,
+            "mittente": "noreply@jonathanpms.local",
+            "usa_tls": true
+        }
+    },
+    "notifiche": {
+        "email": {
+            "conferma_prenotazione": true,
+            "promemoria_check_in": true,
+            "fattura": true,
+            "recensione_post_soggiorno": true
+        },
+        "sms": {
+            "attivo": false,
+            "conferma_prenotazione": false
+        },
+        "whatsapp": {
+            "attivo": false
+        }
+    },
+    "metadati": {
+        "versione_configurazione": "1.0.0",
+        "creato_il": "2024-01-01T00:00:00Z",
+        "aggiornato_il": "2024-06-01T00:00:00Z",
+        "autore": "system"
+    }
+}
